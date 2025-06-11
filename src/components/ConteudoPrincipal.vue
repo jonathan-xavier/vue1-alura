@@ -4,20 +4,25 @@
             <span class="subtitulo-lg sua-lista-texto">
                 Sua lista:
             </span>
-            <ul class="ingredientes-sua-lista">
-                <li v-for="ingrediente in ingredientes" class="ingrediente">
+            <ul v-if="ingredientes" class="ingredientes-sua-lista">
+                <li v-for="ingrediente in ingredientes" 
+                :key="ingrediente" class="ingrediente">
                     {{ ingrediente }}
                 </li>
-                
             </ul>
+            <p  v-else class="paragrafo lista-vazia">
+              <img src="../assets/images/icones/lista-vazia.svg" alt="lista vazia">
+              Sua lista está vazia. Selecione ingredientes para iniciar.
+            </p>
         </section>
     </main>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     data() {
         return {
+          
             ingredientes: ['Alho', 'Manteiga', 'Orégano']
         }
     }
